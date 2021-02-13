@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Charset -->
+    <meta charset="utf-8">
+    <!-- Responsive -->
+    <meta name=viewport content="user-scalable=no,initial-scale=1,maximum-scale=1,minimum-scale=1,width=device-width">
+    <!-- Description -->
+    <meta name=description content="Krenovator Hello World by Kim Mohito">
+    <meta property='og:title' content='@kimmohito | krenovator-hello-world'>
+    <meta property='og:description' content='Krenovator Hellow World by Kim Mohito'>
+    <meta property='og:url' content='http://kimmohito.com/krenovator-hello-world'>
+    <meta property='og:site_name' content='Hello World'>
+    <meta property='og:type' content='website'>
+    <!-- Title -->
+    <title>@kimmohito | krenovator-hello-world</title>
+    <!-- Favicon Krenovator -->
+    <link rel=icon type=image/ico href="favicon.ico">
+    <!-- Style (Using CSS inside this index.html because there's no point to split files since there's only Hello World, using one html file.) -->
+    <style>
+        /* Custom Font */
+        @font-face {
+            font-family: 'helloFont';
+            src: url(Hello.ttf);
+        }
+        /* Remove All Margins */
+        * {
+            margin: 0;
+        }
+        /* Main */
+        html, body{
+            height: 100%;
+            width: 100%;
+        }
+        main{
+            min-height: 100%;
+        }
+
+        /* Moving Background */
+        .background{
+            background: url('background.gif');
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+
+        /* Make readable content limited to 1200px width only */
+        .container{
+            max-width: 1200px;
+            margin: auto;
+        }
+        /* Make it Center */
+        .center{
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+        }
+        /* Flip that card */
+        .flip-card {
+            width: 300px;
+            height: 300px;
+            perspective: 1000px;
+            animation: jello 5s;
+            animation-iteration-count: infinite;
+        }
+        .flip-card-front img{
+            width: 260px;
+            height: 260px;
+            margin: 20px;
+            border-radius: 5px;
+            transition: 1s;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        }
+        .flip-card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            transition: 1s;
+            transform-style: preserve-3d;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        }
+        .flip-card:hover .flip-card-inner {
+            transform: rotateX(45deg) rotateY(-180deg) rotateZ(45deg);
+        }
+        .flip-card-front, .flip-card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+        }
+        .flip-card-back {
+            border-radius: 5px;
+            background-color: #fff;
+            color: #222;
+            transform: rotateY(180deg);
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        }
+        .flip-card-back #chat{
+            font-family: 'helloFont';
+            font-size: 80px;
+            padding-top: 40px;
+        }
+        .flip-card-back .name{
+            font-size: 20px;
+            font-family: Arial;
+            font-style: italic;
+        }
+        /* Custom Animation i named is as Jello */
+        @keyframes jello {
+            0% {
+                transform: translateY(0);
+            }
+            80%{
+                transform: translateY(0);
+            }
+            95%{
+                transform: translateY(15px) rotateX(15deg) rotateY(15deg) rotateZ(15deg);
+            }
+            90%{            
+                transform: translateY(-30px) rotateX(-45deg) rotateY(-45deg) rotateZ(-45deg);
+            }
+            100%{
+                transform: translateY(0);
+            }
+        }
+        /* Footer Tagging */
+        footer{
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            padding-bottom: 40px;
+            text-align: center;
+            font-family: Arial;
+            color: #fff;
+        }
+        footer a{
+            color: red;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <!-- Main -->
+    <main class="background">
+        <div class="container">
+            <div class="center">
+
+                <div class="flip-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <img src="profile.jpg">
+                        </div>
+                        <div class="flip-card-back">
+                            <div id="chat"></div>
+                            <div class="name">@kimmohito</div>
+                        </div>
+                    </div>
+                  </div>
+
+            </div>
+        </div>
+    </main>
+    <footer>Craft for <a href="https://krenovator.cc/">Krenovator</a> with ❤️ by <a href="https://kimmohito.com">@kimmohito</a></footer>
+    <!-- Javascript -->
+    <script>
+        // Declare Function
+        function sayHello() {
+            document.getElementById("chat").innerHTML = "Hello World!";
+        }
+        // Call Function
+        sayHello();
+    </script>
+</body>
+</html>
